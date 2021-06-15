@@ -62,6 +62,36 @@ $.plot($("#placeholder"), [ [[0, 0], [1, 1]] ], { yaxis: { max: 1 } });
 The plot function immediately draws the chart and then returns a plot
 object with a couple of methods.
 
+### Dashed Lines
+In order to get better representation of data sometimes you need more line types.  Flot
+has that built in but I dug around and found it so you wouldn't have to.
+```js
+//  dashed line info
+// if you want a dashed line you can do something like this
+data = [
+  { color: "red",
+    lines: {
+      show: true, 
+      lineWidth: 4,
+      dashes: [15, 3, 3, 3]// repeating dash(15), space(3), dash(3), space(3)
+    },	
+  points: my_data_points,			
+  data: data13, 		
+  label: "Dashed Lines & Points" 
+  }
+]; 
+```
+Some other examples might be:
+```js
+dashes: []// solid line
+dashes: [1,1]// repeating dash(1), space(1) - very tiny dashed line
+dashes: [15, 15]// repeating dash(15), space(15) - basic/normal dashed line look
+dashes: [24,6]// repeating dash(24), space(6) - long dash with short space  // Equals [24, 6, 24, 6, 24, 6]
+dashes: [15, 3, 3, 3]// repeating dash(15), space(3), dash(3), space(3) - long dash, short space, short dash, short space, long dash,...
+dashes: [20, 3, 3, 3, 3, 3, 3, 3]]// repeating dash(20), space(3), dash(3), space(3), dash(3), space(3), dash(3), space(3)...
+dashes: [12, 3, 3]// repeating dash(12), space(3), dash(3)  // Equals [12, 3, 3, 12, 3, 3]
+```
+
 ## Documentation and examples
 
 API Documentation is available here: [API reference](docs/API.md)
