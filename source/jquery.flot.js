@@ -161,9 +161,26 @@ Licensed under the MIT license.
                         lineWidth: 1, // in pixels
                         fill: false,
                         fillColor: null,
-                        steps: false
+                        steps: false,
                         // Omit 'zero', so we can later default its value to
                         // match that of the 'fill' option.
+                        //-----
+                        //  dashed line info
+                        // if you want a dashed line you can do something like this
+                        /* data = [
+                            //lines
+                            {   color: "red",
+                                lines: {
+                                    show: true, 
+                                    lineWidth: 4,
+                                    dashes: [15, 3, 3, 3]// repeating dash(15), space(3), dash(3), space(3)
+                                },	
+                                points: my_data_points,			
+                                data: data13, 		
+                                label: "Dashed Lines & Points" 
+                            }
+                        ]; */
+                        //-----
                     },
                     bars: {
                         show: false,
@@ -1934,6 +1951,7 @@ Licensed under the MIT license.
                             ctx.moveTo(xrange.from, yrange.to + subPixel);
                             ctx.lineTo(xrange.to, yrange.to + subPixel);
                         }
+
                         ctx.stroke();
                     } else {
                         ctx.fillStyle = m.color || options.grid.markingsColor;
